@@ -2,6 +2,7 @@
 # -*- coding: utf-8  -*-
 import sys
 import collections
+import re
 # Request to enter path to directory.
 if len(sys.argv)<2:
     print("Enter path to directory: python nd.py path_to_directory")
@@ -16,4 +17,10 @@ def calc_symbols(info)
     for i in info:
         symbols[i] += 1
     return symbols
+
+
+# Function to calcuate words
+def calc_words(info)
+    collections.Counter(map(str.lower, re.split('\W+', info)))
+    return Counter
 
