@@ -41,4 +41,10 @@ for i in range(0, len(file_list)):
     words_statistics = calc_words(material)
     stat_file_dir = str(path_to_directory) + str(sys.argv[2])
     statistics_file = open(stat_file_dir, 'a')
-
+    statistics_file.write('Simboliu statistika failo: ' + str(loop) + '\n')
+    for key, value in symbol_statistics.items():
+        statistics_file.write(str(key) + ' : ' + str(value) + '; ' + '\n')
+    statistics_file.write('Zodziu statistika failo: ' + str(loop) + '\n')
+    for key, value in words_statistics.items():
+        statistics_file.write(str(key) + ' : ' + str(value) + '; ' + '\n')
+    statistics_file.close()
