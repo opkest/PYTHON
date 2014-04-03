@@ -29,3 +29,12 @@ def calc_words(info):
 
 
 file_list = os.listdir(path_to_directory)
+'''Loop for reading files from specified directory, calcuating their'''
+'''statistics and writing them to specified statistics file'''
+for i in range(0, len(file_list)):
+    loop = file_list[i]
+    file_dir = str(path_to_directory) + str(loop)
+    file_text = open(file_dir, 'r')
+    material = file_text.read()
+    file_text.close()
+
