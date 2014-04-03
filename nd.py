@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8  -*-
 import sys
+import os
 import collections
 import re
 # Request to enter path to directory.
@@ -12,15 +13,14 @@ else:
 
 
 # Function to calcuate symbols
-def calc_symbols(info)
+def calc_symbols(info):
     symbols = collections.defaultdict(int)
     for i in info:
         symbols[i] += 1
     return symbols
 
-
 # Function to calcuate words
-def calc_words(info)
-    collections.Counter(map(str.lower, re.split('\W+', info)))
-    return Counter
+def calc_words(info):
+    words = collections.Counter(map(str.lower, re.split('\W+', info)))
+    return words
 
