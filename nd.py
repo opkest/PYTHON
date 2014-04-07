@@ -37,7 +37,7 @@ for i in range(0, len(file_list)):
     file_dir = str(path_to_directory) + '/' + str(loop)
     file_text = open(file_dir, 'r')
     material = file_text.read()
-    total_material += '' + material
+    total_material += material
     file_text.close()
     symbol_statistics = calc_symbols(material)
     words_statistics = calc_words(material)
