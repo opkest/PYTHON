@@ -32,9 +32,8 @@ file_list = os.listdir(path_to_directory)
 total_material = ''
 '''Loop for reading files from specified directory, calcuating their'''
 '''statistics and writing them to specified statistics file'''
-for i in range(0, len(file_list)):
-    loop = file_list[i]
-    file_dir = str(path_to_directory) + '/' + str(loop)
+for i, filename in enumerate(file_list):
+    file_dir = str(path_to_directory) + '/' + str(filename)
     file_text = open(file_dir, 'r')
     material = file_text.read()
     total_material += material
@@ -43,10 +42,10 @@ for i in range(0, len(file_list)):
     words_statistics = calc_words(material)
     stat_file_dir = str(path_to_directory) + '/' + str(sys.argv[2])
     statistics_file = open(stat_file_dir, 'a')
-    statistics_file.write('Simboliu statistika failo: ' + str(loop) + '\n')
+    statistics_file.write('Simboliu statistika failo: ' + str(filename) + '\n')
     for key, value in symbol_statistics.items():
         statistics_file.write(str(key) + ' : ' + str(value) + '; ' + '\n')
-    statistics_file.write('Zodziu statistika failo: ' + str(loop) + '\n')
+    statistics_file.write('Zodziu statistika failo: ' + str(filename) + '\n')
     for key, value in words_statistics.items():
         statistics_file.write(str(key) + ' : ' + str(value) + '; ' + '\n')
     statistics_file.close()
