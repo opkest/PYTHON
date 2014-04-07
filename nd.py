@@ -33,13 +33,13 @@ file_list = os.listdir(path_to_directory)
 '''statistics and writing them to specified statistics file'''
 for i in range(0, len(file_list)):
     loop = file_list[i]
-    file_dir = str(path_to_directory) + str(loop)
+    file_dir = str(path_to_directory) + '/' + str(loop)
     file_text = open(file_dir, 'r')
     material = file_text.read()
     file_text.close()
     symbol_statistics = calc_symbols(material)
     words_statistics = calc_words(material)
-    stat_file_dir = str(path_to_directory) + str(sys.argv[2])
+    stat_file_dir = str(path_to_directory) + '/' +  str(sys.argv[2])
     statistics_file = open(stat_file_dir, 'a')
     statistics_file.write('Simboliu statistika failo: ' + str(loop) + '\n')
     for key, value in symbol_statistics.items():
