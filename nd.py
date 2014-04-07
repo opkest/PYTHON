@@ -29,6 +29,7 @@ def calc_words(info):
 
 
 file_list = os.listdir(path_to_directory)
+total_material = ''
 '''Loop for reading files from specified directory, calcuating their'''
 '''statistics and writing them to specified statistics file'''
 for i in range(0, len(file_list)):
@@ -36,6 +37,7 @@ for i in range(0, len(file_list)):
     file_dir = str(path_to_directory) + '/' + str(loop)
     file_text = open(file_dir, 'r')
     material = file_text.read()
+    total_material += '' + material
     file_text.close()
     symbol_statistics = calc_symbols(material)
     words_statistics = calc_words(material)
@@ -48,3 +50,15 @@ for i in range(0, len(file_list)):
     for key, value in words_statistics.items():
         statistics_file.write(str(key) + ' : ' + str(value) + '; ' + '\n')
     statistics_file.close()
+'''Code to calcuate overall statistics of files in specified directory and'''
+'''write them to specified statistics file'''
+total_symbol_statistics = calc_symbols(total_material)
+total_words_statistics = calc_words(total_material)
+statistics_file = open(stat_file_dir, 'a')
+statistics_file.write('Bendra visu failu simboliu statistika: ' + '\n')
+for key, value in total_symbol_statistics.items():
+    statistics_file.write(str(key) + " : " + str(value) + "; " + '\n')
+statistics_file.write('Bendra visu failu zodziu statistika: ' + '\n')
+for key, value in total_words_statistics.items():
+    statistics_file.write(str(key) + " : " + str(value) + "; " + '\n')
+statistics_file.close()
